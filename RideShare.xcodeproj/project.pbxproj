@@ -12,7 +12,33 @@
 		1DAECAD01E8DD2CF00183CCB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECACE1E8DD2CF00183CCB /* Main.storyboard */; };
 		1DAECAD21E8DD2CF00183CCB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAD11E8DD2CF00183CCB /* Assets.xcassets */; };
 		1DAECAD51E8DD2CF00183CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAD31E8DD2CF00183CCB /* LaunchScreen.storyboard */; };
+		1DAECAE31E8DD32E00183CCB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */; };
+		1DAECAE71E8DD32E00183CCB /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1DAECAE01E8DD32E00183CCB /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1DAECAE51E8DD32E00183CCB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1DAECABF1E8DD2CF00183CCB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DAECADF1E8DD32E00183CCB;
+			remoteInfo = Extension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		1DAECAEB1E8DD32E00183CCB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1DAECAE71E8DD32E00183CCB /* Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		1DAECAC71E8DD2CF00183CCB /* RideShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RideShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -22,10 +48,20 @@
 		1DAECAD11E8DD2CF00183CCB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DAECAD41E8DD2CF00183CCB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DAECAD61E8DD2CF00183CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DAECAE01E8DD32E00183CCB /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
+		1DAECAE41E8DD32E00183CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		1DAECAC41E8DD2CF00183CCB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DAECADD1E8DD32E00183CCB /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -39,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				1DAECAC91E8DD2CF00183CCB /* RideShare */,
+				1DAECAE11E8DD32E00183CCB /* Extension */,
 				1DAECAC81E8DD2CF00183CCB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				1DAECAC71E8DD2CF00183CCB /* RideShare.app */,
+				1DAECAE01E8DD32E00183CCB /* Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +102,15 @@
 			path = RideShare;
 			sourceTree = "<group>";
 		};
+		1DAECAE11E8DD32E00183CCB /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */,
+				1DAECAE41E8DD32E00183CCB /* Info.plist */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,15 +121,34 @@
 				1DAECAC31E8DD2CF00183CCB /* Sources */,
 				1DAECAC41E8DD2CF00183CCB /* Frameworks */,
 				1DAECAC51E8DD2CF00183CCB /* Resources */,
+				1DAECAEB1E8DD32E00183CCB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				1DAECAE61E8DD32E00183CCB /* PBXTargetDependency */,
 			);
 			name = RideShare;
 			productName = RideShare;
 			productReference = 1DAECAC71E8DD2CF00183CCB /* RideShare.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1DAECADF1E8DD32E00183CCB /* Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DAECAE81E8DD32E00183CCB /* Build configuration list for PBXNativeTarget "Extension" */;
+			buildPhases = (
+				1DAECADC1E8DD32E00183CCB /* Sources */,
+				1DAECADD1E8DD32E00183CCB /* Frameworks */,
+				1DAECADE1E8DD32E00183CCB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Extension;
+			productName = Extension;
+			productReference = 1DAECAE01E8DD32E00183CCB /* Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -95,6 +161,10 @@
 				ORGANIZATIONNAME = "Parankush Bhardwaj";
 				TargetAttributes = {
 					1DAECAC61E8DD2CF00183CCB = {
+						CreatedOnToolsVersion = 8.3;
+						ProvisioningStyle = Automatic;
+					};
+					1DAECADF1E8DD32E00183CCB = {
 						CreatedOnToolsVersion = 8.3;
 						ProvisioningStyle = Automatic;
 					};
@@ -114,6 +184,7 @@
 			projectRoot = "";
 			targets = (
 				1DAECAC61E8DD2CF00183CCB /* RideShare */,
+				1DAECADF1E8DD32E00183CCB /* Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -129,6 +200,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DAECADE1E8DD32E00183CCB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -141,7 +219,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1DAECADC1E8DD32E00183CCB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1DAECAE31E8DD32E00183CCB /* IntentHandler.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1DAECAE61E8DD32E00183CCB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1DAECADF1E8DD32E00183CCB /* Extension */;
+			targetProxy = 1DAECAE51E8DD32E00183CCB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		1DAECACE1E8DD2CF00183CCB /* Main.storyboard */ = {
@@ -259,6 +353,7 @@
 		1DAECADA1E8DD2CF00183CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -271,11 +366,36 @@
 		1DAECADB1E8DD2CF00183CCB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = RideShare/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HumblyHuman.RideShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		1DAECAE91E8DD32E00183CCB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HumblyHuman.RideShare.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		1DAECAEA1E8DD32E00183CCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Extension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = HumblyHuman.RideShare.Extension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -297,6 +417,14 @@
 			buildConfigurations = (
 				1DAECADA1E8DD2CF00183CCB /* Debug */,
 				1DAECADB1E8DD2CF00183CCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1DAECAE81E8DD32E00183CCB /* Build configuration list for PBXNativeTarget "Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DAECAE91E8DD32E00183CCB /* Debug */,
+				1DAECAEA1E8DD32E00183CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
