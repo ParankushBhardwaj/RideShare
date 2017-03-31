@@ -17,6 +17,7 @@ class IntentHandler: INExtension, INRidesharingDomainHandling {
     
     
     //below func shows list of available rides when on Apple Maps
+    
         func handle(listRideOptions intent: INListRideOptionsIntent, completion: @escaping
             (INListRideOptionsIntentResponse) -> Void) {
             
@@ -35,7 +36,7 @@ class IntentHandler: INExtension, INRidesharingDomainHandling {
             response.expirationDate = Date(timeIntervalSinceNow: 3600)
             response.rideOptions = [Tesla, BMW, Nissan]
 
-            
+            completion(response)
     }
     
     

@@ -111,10 +111,10 @@
 		1DAECAE11E8DD32E00183CCB /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */,
 				1DAECAEC1E8DE5C100183CCB /* car.png */,
 				1DAECAED1E8DE5C100183CCB /* car@2x.png */,
 				1DAECAEE1E8DE5C100183CCB /* car@3x.png */,
+				1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */,
 				1DAECAE41E8DD32E00183CCB /* Info.plist */,
 			);
 			path = Extension;
@@ -434,6 +434,7 @@
 				1DAECADB1E8DD2CF00183CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1DAECAE81E8DD32E00183CCB /* Build configuration list for PBXNativeTarget "Extension" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +443,7 @@
 				1DAECAEA1E8DD32E00183CCB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
