@@ -7,118 +7,56 @@
 //
 
 import Intents
+import UIKit
 
-// As an example, this class is set up to handle Message intents.
-// You will want to replace this or add other intents as appropriate.
-// The intents you wish to handle must be declared in the extension's Info.plist.
 
-// You can test your example integration by saying things to Siri like:
-// "Send a message using <myApp>"
-// "<myApp> John saying hello"
-// "Search for messages in <myApp>"
 
-class IntentHandler: INExtension, INSendMessageIntentHandling, INSearchForMessagesIntentHandling, INSetMessageAttributeIntentHandling {
+class IntentHandler: INExtension, INRidesharingDomainHandling {
     
-    override func handler(for intent: INIntent) -> Any {
-        // This is the default implementation.  If you want different objects to handle different intents,
-        // you can override this and return the handler you want for that particular intent.
+    //all methods are async so that a slow server response doesn't freeze Siri or Maps
+    
+    
+    //below func shows list of available rides when on Apple Maps
+        func handle(listRideOptions intent: INListRideOptionsIntent, completion: @escaping (INListRideOptionsIntentResponse) -> Void) {
+        <#code#>
+    }
+    
+    
+    //below creates a ride when using Maps or Siri
+    func handle(requestRide intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void) {
+        <#code#>
+    }
+    
+    
+    
+    //below funcs will be for info on car-waiting (need server for actual functionality)
+    func handle(getRideStatus intent: INGetRideStatusIntent, completion: @escaping (INGetRideStatusIntentResponse) -> Void) {
         
-        return self
-    }
-    
-    // MARK: - INSendMessageIntentHandling
-    
-    // Implement resolution methods to provide additional information about your intent (optional).
-    func resolveRecipients(forSendMessage intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void) {
-        if let recipients = intent.recipients {
-            
-            // If no recipients were provided we'll need to prompt for a value.
-            if recipients.count == 0 {
-                completion([INPersonResolutionResult.needsValue()])
-                return
-            }
-            
-            var resolutionResults = [INPersonResolutionResult]()
-            for recipient in recipients {
-                let matchingContacts = [recipient] // Implement your contact matching logic here to create an array of matching contacts
-                switch matchingContacts.count {
-                case 2  ... Int.max:
-                    // We need Siri's help to ask user to pick one from the matches.
-                    resolutionResults += [INPersonResolutionResult.disambiguation(with: matchingContacts)]
-                    
-                case 1:
-                    // We have exactly one matching contact
-                    resolutionResults += [INPersonResolutionResult.success(with: recipient)]
-                    
-                case 0:
-                    // We have no contacts matching the description provided
-                    resolutionResults += [INPersonResolutionResult.unsupported()]
-                    
-                default:
-                    break
-                    
-                }
-            }
-            completion(resolutionResults)
-        }
-    }
-    
-    func resolveContent(forSendMessage intent: INSendMessageIntent, with completion: @escaping (INStringResolutionResult) -> Void) {
-        if let text = intent.content, !text.isEmpty {
-            completion(INStringResolutionResult.success(with: text))
-        } else {
-            completion(INStringResolutionResult.needsValue())
-        }
-    }
-    
-    // Once resolution is completed, perform validation on the intent and provide confirmation (optional).
-    
-    func confirm(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Void) {
-        // Verify user is authenticated and your app is ready to send a message.
-        
-        let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
-        let response = INSendMessageIntentResponse(code: .ready, userActivity: userActivity)
+        //for now, always return success. When adding a server, below method will change.
+        let response = INGetRideStatusIntentResponse(code: .success, userActivity: nil)
         completion(response)
     }
     
-    // Handle the completed intent (required).
-    
-    func handle(sendMessage intent: INSendMessageIntent, completion: @escaping (INSendMessageIntentResponse) -> Void) {
-        // Implement your application logic to send a message here.
-        
-        let userActivity = NSUserActivity(activityType: NSStringFromClass(INSendMessageIntent.self))
-        let response = INSendMessageIntentResponse(code: .success, userActivity: userActivity)
-        completion(response)
+    func startSendingUpdates(forGetRideStatus intent: INGetRideStatusIntent, to observer: INGetRideStatusIntentResponseObserver) {
+        <#code#>
     }
     
-    // Implement handlers for each intent you wish to handle.  As an example for messages, you may wish to also handle searchForMessages and setMessageAttributes.
-    
-    // MARK: - INSearchForMessagesIntentHandling
-    
-    func handle(searchForMessages intent: INSearchForMessagesIntent, completion: @escaping (INSearchForMessagesIntentResponse) -> Void) {
-        // Implement your application logic to find a message that matches the information in the intent.
-        
-        let userActivity = NSUserActivity(activityType: NSStringFromClass(INSearchForMessagesIntent.self))
-        let response = INSearchForMessagesIntentResponse(code: .success, userActivity: userActivity)
-        // Initialize with found message's attributes
-        response.messages = [INMessage(
-            identifier: "identifier",
-            content: "I am so excited about SiriKit!",
-            dateSent: Date(),
-            sender: INPerson(personHandle: INPersonHandle(value: "sarah@example.com", type: .emailAddress), nameComponents: nil, displayName: "Sarah", image: nil,  contactIdentifier: nil, customIdentifier: nil),
-            recipients: [INPerson(personHandle: INPersonHandle(value: "+1-415-555-5555", type: .phoneNumber), nameComponents: nil, displayName: "John", image: nil,  contactIdentifier: nil, customIdentifier: nil)]
-            )]
-        completion(response)
+    func stopSendingUpdates(forGetRideStatus intent: INGetRideStatusIntent) {
+        <#code#>
     }
     
-    // MARK: - INSetMessageAttributeIntentHandling
     
-    func handle(setMessageAttribute intent: INSetMessageAttributeIntent, completion: @escaping (INSetMessageAttributeIntentResponse) -> Void) {
-        // Implement your application logic to set the message attribute here.
-        
-        let userActivity = NSUserActivity(activityType: NSStringFromClass(INSetMessageAttributeIntent.self))
-        let response = INSetMessageAttributeIntentResponse(code: .success, userActivity: userActivity)
-        completion(response)
+    //below funcs are part of 'Resolve' step (handles actions when asking for addition info through Siri)
+    
+    func resolvePickupLocation(forRequestRide intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void) {
+        <#code#>
     }
+    
+    func resolveDropOffLocation(forRequestRide intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void) {
+        <#code#>
+    }
+    
+    
+    
+    
 }
-

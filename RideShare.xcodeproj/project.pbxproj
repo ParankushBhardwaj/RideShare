@@ -166,6 +166,7 @@
 					};
 					1DAECADF1E8DD32E00183CCB = {
 						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = K7PJHE383W;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -379,6 +380,7 @@
 		1DAECAE91E8DD32E00183CCB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K7PJHE383W;
 				INFOPLIST_FILE = Extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HumblyHuman.RideShare.Extension;
@@ -391,6 +393,7 @@
 		1DAECAEA1E8DD32E00183CCB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = K7PJHE383W;
 				INFOPLIST_FILE = Extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = HumblyHuman.RideShare.Extension;
