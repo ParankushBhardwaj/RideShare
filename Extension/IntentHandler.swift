@@ -17,14 +17,64 @@ class IntentHandler: INExtension, INRidesharingDomainHandling {
     
     
     //below func shows list of available rides when on Apple Maps
-        func handle(listRideOptions intent: INListRideOptionsIntent, completion: @escaping (INListRideOptionsIntentResponse) -> Void) {
-        <#code#>
+        func handle(listRideOptions intent: INListRideOptionsIntent, completion: @escaping
+            (INListRideOptionsIntentResponse) -> Void) {
+            
+            let response = INListRideOptionsIntentResponse(code: .success, userActivity: nil)
+            
+            //create fake cars as a tester to see if response is working
+            //only put electric fake cars (preventing global warming in the digital world)
+            
+            let Tesla = INRideOption(name: "Tesla Model S", estimatedPickupDate: Date(timeIntervalSinceNow: 1000))
+            
+            let BMW = INRideOption(name: "BMW i3", estimatedPickupDate: Date(timeIntervalSinceNow: 800))
+            
+            let Nissan = INRideOption(name: "Nissan LEAF", estimatedPickupDate: Date(timeIntervalSinceNow: 400))
+            
+            
+            response.expirationDate = Date(timeIntervalSinceNow: 3600)
+            response.rideOptions = [Tesla, BMW, Nissan]
+
+            
     }
     
     
     //below creates a ride when using Maps or Siri
     func handle(requestRide intent: INRequestRideIntent, completion: @escaping (INRequestRideIntentResponse) -> Void) {
-        <#code#>
+        
+        let result = INRequestRideIntentResponse(code: .success, userActivity: nil)
+        
+        let status = INRideStatus()
+        
+        //identifier for specific car
+        status.rideIdentifier = "example"
+        
+        //give it pickup and drop-off locations
+        status.pickupLocation = intent.pickupLocation
+        status.dropOffLocation = intent.dropOffLocation
+        
+        //confirm ride
+        status.phase = INRidePhase.confirmed
+        
+        //say you'll be there in 10
+        status.estimatedPickupDate = Date(timeIntervalSinceNow: 600)
+        
+        //configure car
+        let car = INRideVehicle()
+        
+        //make image for car
+        let image = UIImage(named: "car")!
+        let data = UIImagePNGRepresentation(image)!
+        car.mapAnnotationImage = INImage(imageData: data)
+        
+        //set user's location to destination
+        car.location = intent.dropOffLocation!.location
+        
+        //configure status
+        result.rideStatus = status
+        
+        completion(result)
+        
     }
     
     
@@ -37,23 +87,48 @@ class IntentHandler: INExtension, INRidesharingDomainHandling {
         completion(response)
     }
     
+    
+    
     func startSendingUpdates(forGetRideStatus intent: INGetRideStatusIntent, to observer: INGetRideStatusIntentResponseObserver) {
-        <#code#>
+        
     }
     
     func stopSendingUpdates(forGetRideStatus intent: INGetRideStatusIntent) {
-        <#code#>
+        
     }
     
     
     //below funcs are part of 'Resolve' step (handles actions when asking for addition info through Siri)
     
     func resolvePickupLocation(forRequestRide intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void) {
-        <#code#>
+        
+        
+        let response: INPlacemarkResolutionResult
+        
+        
+        if let requestedLocation = intent.pickupLocation {
+            response = INPlacemarkResolutionResult.success(with: requestedLocation)
+        } else  {
+            response = INPlacemarkResolutionResult.needsValue()
+        }
+        completion(response)
+        
     }
     
     func resolveDropOffLocation(forRequestRide intent: INRequestRideIntent, with completion: @escaping (INPlacemarkResolutionResult) -> Void) {
-        <#code#>
+        
+        let response: INPlacemarkResolutionResult
+        
+        
+        if let requestedLocation = intent.dropOffLocation {
+            response = INPlacemarkResolutionResult.success(with: requestedLocation)
+        } else  {
+            response = INPlacemarkResolutionResult.needsValue()
+        }
+        completion(response)
+
+        
+        
     }
     
     

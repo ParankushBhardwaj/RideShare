@@ -14,6 +14,9 @@
 		1DAECAD51E8DD2CF00183CCB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAD31E8DD2CF00183CCB /* LaunchScreen.storyboard */; };
 		1DAECAE31E8DD32E00183CCB /* IntentHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */; };
 		1DAECAE71E8DD32E00183CCB /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 1DAECAE01E8DD32E00183CCB /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		1DAECAEF1E8DE5C100183CCB /* car.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAEC1E8DE5C100183CCB /* car.png */; };
+		1DAECAF01E8DE5C100183CCB /* car@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAED1E8DE5C100183CCB /* car@2x.png */; };
+		1DAECAF11E8DE5C100183CCB /* car@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1DAECAEE1E8DE5C100183CCB /* car@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,9 @@
 		1DAECAE01E8DD32E00183CCB /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentHandler.swift; sourceTree = "<group>"; };
 		1DAECAE41E8DD32E00183CCB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1DAECAEC1E8DE5C100183CCB /* car.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = car.png; path = ../../../../Downloads/ChooseCruise/Extension/car.png; sourceTree = "<group>"; };
+		1DAECAED1E8DE5C100183CCB /* car@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "car@2x.png"; path = "../../../../Downloads/ChooseCruise/Extension/car@2x.png"; sourceTree = "<group>"; };
+		1DAECAEE1E8DE5C100183CCB /* car@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "car@3x.png"; path = "../../../../Downloads/ChooseCruise/Extension/car@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				1DAECAE21E8DD32E00183CCB /* IntentHandler.swift */,
+				1DAECAEC1E8DE5C100183CCB /* car.png */,
+				1DAECAED1E8DE5C100183CCB /* car@2x.png */,
+				1DAECAEE1E8DE5C100183CCB /* car@3x.png */,
 				1DAECAE41E8DD32E00183CCB /* Info.plist */,
 			);
 			path = Extension;
@@ -205,6 +214,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DAECAEF1E8DE5C100183CCB /* car.png in Resources */,
+				1DAECAF11E8DE5C100183CCB /* car@3x.png in Resources */,
+				1DAECAF01E8DE5C100183CCB /* car@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
